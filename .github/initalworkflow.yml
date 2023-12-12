@@ -1,0 +1,10 @@
+name: "New workflow"
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run echo command
+        run: echo "Workflow running is this code running"
