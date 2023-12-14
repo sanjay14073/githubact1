@@ -1,0 +1,28 @@
+name: "3rd Workflow"
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Run echo command"
+        run: echo "Running 3rd workflow"
+      - name: "Run standard checkout-actions"
+        uses: actions/checkout@v3
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Run standard artifact-upload"
+        uses: actions/upload-artifact@v4
+        with:
+            name: my-artifact
+            path: |
+                path/output/bin/
+                path/output/test-results
+                !path/**/*.tmp
+
