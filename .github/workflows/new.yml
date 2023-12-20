@@ -11,5 +11,12 @@ jobs:
 
         - name: Run standard checkout-actions
           uses: actions/checkout@v3
+        
+        - name: Run Upload artifact action
+          uses: actions/upload-artifact@v3
+        
+        - name: Run echo command now for stating all actions sucessfully completed
+          uses: echo "The upload and normal checkout actions have been completed sucessfully"
+          
 
 
